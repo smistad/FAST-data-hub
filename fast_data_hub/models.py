@@ -88,6 +88,7 @@ class Item(models.Model):
             'license_url': self.license.url,
             'copyright': self.copyright,
             'author': self.author,
+            'downloads': self.download_counter,
             'thumbnail_url': request.build_absolute_uri(self.thumbnail.url),
             'download_url': request.build_absolute_uri(reverse('download', kwargs={'item_id': self.id})),
             'type': 'pipeline' if self.is_pipeline else 'data',
