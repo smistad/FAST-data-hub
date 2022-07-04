@@ -2,3 +2,5 @@
 *.pyc
 uploads/*
 thumbnails/*
+*.sqlite3
+environment

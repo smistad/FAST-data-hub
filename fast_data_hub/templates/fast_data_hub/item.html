@@ -1,0 +1,24 @@
+<div class="m-container m-block">
+    <div class="m-row" style="margin: 0px; padding: 0px">
+        <div class="m-col-t-2" style="margin: 0px; padding: 0px">
+            <a href=""><img src="{{ item.thumbnail.url }}" style="width: 128px; height: 128px" class="m-image"></a>
+        </div>
+        <div class="m-col-t-10" style="margin: 0px; padding: 0px">
+            <h3><a href="">{{ item.name }}</a></h3>
+            {{ item.description }}<br><br>
+
+            <h6>
+                ID: {{ item.id }}<br>
+                Downloads: {{ item.download_counter }}<br>
+                Authors: {{ item.all_authors | join:", " }}<br>
+                Copyrights: {{ item.all_copyrights | join:", " }}<br>
+                {% if item.all_licences %}
+                    Licenses:
+                    {% for license, url in item.all_licences.items %}
+                        <a href="{{ url }}">{{ license }}</a>
+                    {% endfor %}
+                {% endif %}
+            </h6>
+        </div>
+    </div>
+</div>

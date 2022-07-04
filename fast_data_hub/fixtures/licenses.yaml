@@ -1,0 +1,30 @@
+- model: fast_data_hub.license
+  pk: 1
+  fields:
+    name: CC0
+    url: https://creativecommons.org/publicdomain/zero/1.0/
+
+- model: fast_data_hub.license
+  pk: 2
+  fields:
+    name: CC BY 4.0
+    url: https://creativecommons.org/licenses/by/4.0/
+
+- model: fast_data_hub.license
+  pk: 3
+  fields:
+    name: CC BY-SA 4.0
+    url: https://creativecommons.org/licenses/by-sa/4.0/
+
+- model: fast_data_hub.license
+  pk: 4
+  fields:
+    name: CC BY-NC 4.0
+    url: https://creativecommons.org/licenses/by-nc/4.0/
+
+- model: fast_data_hub.license
+  pk: 5
+  fields:
+    name: CC SA-BY-NC 4.0
+    url: https://creativecommons.org/licenses/by-nc-sa/4.0/
+

@@ -1,0 +1,48 @@
+{% extends 'fast_data_hub/base.html' %}
+{% load static %}
+
+{% block content %}
+    <main>
+        <article>
+            <div class="m-container m-container-inflatable">
+                <div class="m-row">
+                    <div class="m-col-l-10 m-push-l-1">
+                        <img class="m-image" src="{% static 'fast_data_hub/images/fast_logo_wide.png' %}" alt="Image"/>
+                        <!--
+                        <p><a href="https://gitter.im/smistad/FAST"><img class="m-image"
+                                                                         src="https://img.shields.io/gitter/room/smistad/fast?logo=gitter"
+                                                                         alt="Image"/></a> <a
+                                href="https://github.com/smistad/FAST/"><img class="m-image"
+                                                                             src="https://img.shields.io/static/v1?label=Code%20on&message=GitHub&color=blue&logo=github"
+                                                                             alt="Image"/></a> <a
+                                href="download-stats.html"><img class="m-image"
+                                                                src="https://img.shields.io/github/downloads/smistad/FAST/total?label=GitHub%20downloads&logo=github"
+                                                                alt="Image"/></a> <a href="download-stats.html"><img
+                                class="m-image"
+                                src="https://img.shields.io/pypi/dm/pyfast?label=pip%20downloads&logo=python"
+                                alt="Image"/></a> <a href="https://github.com/smistad/FAST/blob/master/LICENSE"><img
+                                class="m-image" src="https://img.shields.io/github/license/smistad/FAST"
+                                alt="Image"/></a></p>
+                                -->
+
+                        <section>
+                            <h1><a href="">Data Hub</a></h1>
+                            <p>
+                                The FAST Data Hub contains open data which can be used directly with <a href="https://fast.eriksmistad.no">FAST</a>.
+                            </p>
+                        </section>
+                        <section id="examples">
+                            <!--
+                            <h2>Python Examples</h2>
+                            Download an item:
+                            <pre class="m-code">
+                                fast.DataHub().download('some-id')
+                            </pre>
+                            -->
+                        </section>
+                    </div>
+                </div>
+            </div>
+        </article>
+    </main>
+{% endblock %}
