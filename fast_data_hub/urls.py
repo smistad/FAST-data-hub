@@ -18,6 +18,7 @@ from django.conf.urls.static import static
 from django.contrib import admin
 from django.urls import path
 from fast_data_hub import views
+from django_otp.admin import OTPAdminSite
 
 urlpatterns = [
     path('', views.index, name='index'),
@@ -32,3 +33,5 @@ urlpatterns = [
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT) \
   + static(settings.THUMBNAIL_URL, document_root=settings.THUMBNAIL_ROOT) \
   + static(settings.UPLOAD_URL, document_root=settings.UPLOAD_ROOT)
+
+admin.site.__class__ = OTPAdminSite
