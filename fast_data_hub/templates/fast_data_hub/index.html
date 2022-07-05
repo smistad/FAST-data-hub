@@ -28,17 +28,63 @@
                         <section>
                             <h1><a href="">Data Hub</a></h1>
                             <p>
-                                The FAST Data Hub contains open data which can be used directly with <a href="https://fast.eriksmistad.no">FAST</a>.
+                                The FAST Data Hub contains open data which can be used directly with <a class="m-doc" href="https://fast.eriksmistad.no">FAST</a>.
+                            </p>
+
+                            <p>
+                                The Data Hub consists of <em>items</em> which can be images, neural network models, text pipelines, or any other kind of data.
+                                Each item has its own unique ID, and an item can depend on other items, e.g. a text pipeline can have a neural network model and an image as dependencies.
+                                Dependencies are downloaded automatically.
                             </p>
                         </section>
-                        <section id="examples">
-                            <!--
-                            <h2>Python Examples</h2>
-                            Download an item:
-                            <pre class="m-code">
-                                fast.DataHub().download('some-id')
-                            </pre>
-                            -->
+                        <section id="download-example">
+                            <h2>Download example</h2>
+                            <p>
+                                Items can be downloaded with FAST in the following way:
+                                <h5>Python</h5>
+                                <pre class="m-code"><span class="kn">import</span> <span class="nn">fast</span>
+
+<span class="n">fast</span><span class="o">.</span><span class="n">DataHub</span><span class="p">()</span><span class="o">.</span><span class="n">download</span><span class="p">(</span><span class="s1">&#39;item-unique-id&#39;</span><span class="p">)</span></pre>
+                                <h5>C++</h5>
+                            <pre class="m-code"><span class="cp">#include</span> <span class="cpf">&lt;FAST/DataHub.hpp&gt;</span><span class="cp"></span>
+
+<span class="n">fast</span><span class="o">::</span><span class="n">DataHub</span><span class="p">().</span><span class="n">download</span><span class="p">(</span><span class="s">&quot;item-unique-id&quot;</span><span class="p">);</span></pre>
+                            </p>
+                        </section>
+                        <section id="pipeline-example">
+                            <h2>Pipeline example</h2>
+                            <p>
+                            FAST has a system for defining pipelines using simple text files.
+                            This enables you to create processing and visualization pipelines without programming and compiling,
+                            making it very easy to test pipelines with different parameters and input data.
+
+                            Read more about <a href="https://fast.eriksmistad.no/text-pipelines.html" class="m-doc">text pipelines here.</a>
+                            </p>
+                            <p>
+                                The Data Hub has a collection of these text pipelines along with corresponding data and neural network models.
+                                Here is an example of how to setup a pipeline from the Data Hub.
+                                <h5>Command Line</h5>
+                                The runPipeline executable is installed with both the Python FAST package and the stand-alone installers.
+                                You use it to run a pipeline from DataHub like so:
+
+                                <pre class="m-code">runPipeline --datahub item-unique-id</pre>
+
+                                <h5>Python</h5>
+
+                                <pre class="m-code"><span class="kn">import</span> <span class="nn">fast</span>
+
+<span class="n">pipeline</span> <span class="o">=</span> <span class="n">fast</span><span class="o">.</span><span class="n">Pipeline</span><span class="o">.</span><span class="n">fromDataHub</span><span class="p">(</span><span class="s1">&#39;item-unique-id&#39;</span><span class="p">)</span>
+<span class="n">pipeline</span><span class="o">.</span><span class="n">run</span><span class="p">()</span></pre>
+
+                                <h5>C++</h5>
+                            <pre class="m-code"><span class="cp">#include</span> <span class="cpf">&lt;FAST/Pipeline.hpp&gt;</span><span class="cp"></span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">auto</span> <span class="n">pipeline</span> <span class="o">=</span> <span class="n">fast</span><span class="o">::</span><span class="n">Pipeline</span><span class="o">::</span><span class="n">fromDataHub</span><span class="p">(</span><span class="s">&quot;item-unique-id&quot;</span><span class="p">);</span>
+    <span class="n">pipeline</span><span class="p">.</span><span class="n">run</span><span class="p">();</span>
+<span class="p">}</span></pre>
+
+                            </p>
                         </section>
                     </div>
                 </div>
