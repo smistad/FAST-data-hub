@@ -23,7 +23,7 @@ class Tag(models.Model):
 
 
 def thumbnail_path(instance, filename):
-    return os.path.join('thumbnails', instance.id + '.jpg')
+    return f'thumbnails/{instance.id}.jpg'
 
 
 def file_storage_path(instance, filename):
@@ -50,10 +50,15 @@ class Item(models.Model):
     tag = models.ManyToManyField(Tag)
     thumbnail = models.ImageField(upload_to=thumbnail_path, default='thumbnails/default.jpg', storage=OverwriteStorage())
 
-    # TODO Inheritance, booleans, or choice field?
-    is_pipeline = models.BooleanField()
-    is_model = models.BooleanField()
-    is_data = models.BooleanField()
+    PIPELINE = 'pipeline'
+    DATA = 'data'
+    MODEL = 'model'
+    ITEM_TYPES = [
+        (PIPELINE, 'Pipeline'),
+        (DATA, 'Data'),
+        (MODEL, 'Model'),
+    ]
+    type = models.CharField(choices=ITEM_TYPES, max_length=16, default=PIPELINE)
 
     min_fast_version = models.CharField(max_length=10, blank=True) # Should be a FAST version number
     max_fast_version = models.CharField(max_length=10, blank=True) # Should be a FAST version number
@@ -72,9 +77,10 @@ class Item(models.Model):
 
     def save(self, **kwargs):
         super().save(kwargs)
-        image = Image.open(self.thumbnail.path)
-        image.thumbnail((256, 256))
-        image.save(self.thumbnail.path, format='JPEG', quality=90)
+        if not self.thumbnail.path.endswith('/default.jpg'):
+            image = Image.open(self.thumbnail.path)
+            image.thumbnail((256, 256))
+            image.save(self.thumbnail.path, format='JPEG', quality=90)
 
     def toJSON(self, request):
         needs = []
@@ -91,7 +97,7 @@ class Item(models.Model):
             'downloads': self.download_counter,
             'thumbnail_url': request.build_absolute_uri(self.thumbnail.url),
             'download_url': request.build_absolute_uri(reverse('download', kwargs={'item_id': self.id})),
-            'type': 'pipeline' if self.is_pipeline else 'data',
+            'type': self.type,
             'needs': needs,
         }
 

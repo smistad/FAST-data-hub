@@ -130,9 +130,11 @@ STATIC_URL = 'static/'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 THUMBNAIL_ROOT = os.path.join(BASE_DIR, 'thumbnails')
-THUMBNAIL_URL = '/thumbnails/'
+THUMBNAIL_URL = 'thumbnails/'
 
 UPLOAD_ROOT = os.path.join(BASE_DIR, 'uploads')
-UPLOAD_URL = '/uploads/'
+UPLOAD_URL = 'uploads/'
+
+MEDIA_ROOT = BASE_DIR
 
 OTP_TOTP_ISSUER = 'FAST DataHub'

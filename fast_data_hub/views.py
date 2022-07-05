@@ -10,19 +10,19 @@ def index(request):
 
 def pipelines(request):
     return render(request, 'fast_data_hub/pipelines.html', {
-        'items': Item.objects.filter(is_pipeline=True)
+        'items': Item.objects.filter(type=Item.PIPELINE)
     })
 
 
 def models(request):
     return render(request, 'fast_data_hub/models.html', {
-        'items': Item.objects.filter(is_model=True)
+        'items': Item.objects.filter(type=Item.MODEL)
     })
 
 
 def data(request):
     return render(request, 'fast_data_hub/data.html', {
-        'items': Item.objects.filter(is_data=True)
+        'items': Item.objects.filter(type=Item.DATA)
     })
 
 

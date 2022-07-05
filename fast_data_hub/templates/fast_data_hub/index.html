@@ -67,20 +67,20 @@
                                 The runPipeline executable is installed with both the Python FAST package and the stand-alone installers.
                                 You use it to run a pipeline from DataHub like so:
 
-                                <pre class="m-code">runPipeline --datahub item-unique-id</pre>
+                                <pre class="m-code">runPipeline --datahub jugular-carotid-ultrasound-segmentation</pre>
 
                                 <h5>Python</h5>
 
                                 <pre class="m-code"><span class="kn">import</span> <span class="nn">fast</span>
 
-<span class="n">pipeline</span> <span class="o">=</span> <span class="n">fast</span><span class="o">.</span><span class="n">Pipeline</span><span class="o">.</span><span class="n">fromDataHub</span><span class="p">(</span><span class="s1">&#39;item-unique-id&#39;</span><span class="p">)</span>
+<span class="n">pipeline</span> <span class="o">=</span> <span class="n">fast</span><span class="o">.</span><span class="n">Pipeline</span><span class="o">.</span><span class="n">fromDataHub</span><span class="p">(</span><span class="s1">&#39;jugular-carotid-ultrasound-segmentation&#39;</span><span class="p">)</span>
 <span class="n">pipeline</span><span class="o">.</span><span class="n">run</span><span class="p">()</span></pre>
 
                                 <h5>C++</h5>
                             <pre class="m-code"><span class="cp">#include</span> <span class="cpf">&lt;FAST/Pipeline.hpp&gt;</span><span class="cp"></span>
 
 <span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
-    <span class="k">auto</span> <span class="n">pipeline</span> <span class="o">=</span> <span class="n">fast</span><span class="o">::</span><span class="n">Pipeline</span><span class="o">::</span><span class="n">fromDataHub</span><span class="p">(</span><span class="s">&quot;item-unique-id&quot;</span><span class="p">);</span>
+    <span class="k">auto</span> <span class="n">pipeline</span> <span class="o">=</span> <span class="n">fast</span><span class="o">::</span><span class="n">Pipeline</span><span class="o">::</span><span class="n">fromDataHub</span><span class="p">(</span><span class="s">&quot;jugular-carotid-ultrasound-segmentation&quot;</span><span class="p">);</span>
     <span class="n">pipeline</span><span class="p">.</span><span class="n">run</span><span class="p">();</span>
 <span class="p">}</span></pre>
 

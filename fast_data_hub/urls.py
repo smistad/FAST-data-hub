@@ -34,4 +34,5 @@ urlpatterns = [
   + static(settings.THUMBNAIL_URL, document_root=settings.THUMBNAIL_ROOT) \
   + static(settings.UPLOAD_URL, document_root=settings.UPLOAD_ROOT)
 
-admin.site.__class__ = OTPAdminSite
+if not settings.DEBUG:
+    admin.site.__class__ = OTPAdminSite
