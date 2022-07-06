@@ -48,7 +48,7 @@ class Item(models.Model):
     copyright = models.CharField(max_length=255)
     author = models.CharField(max_length=255)
     tag = models.ManyToManyField(Tag)
-    thumbnail = models.ImageField(upload_to=thumbnail_path, default='thumbnails/default.jpg', storage=OverwriteStorage())
+    thumbnail = models.ImageField(upload_to=thumbnail_path, default='thumbnails/default.png', storage=OverwriteStorage())
 
     PIPELINE = 'pipeline'
     DATA = 'data'
