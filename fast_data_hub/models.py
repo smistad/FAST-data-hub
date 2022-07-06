@@ -77,9 +77,10 @@ class Item(models.Model):
 
     def save(self, **kwargs):
         super().save(kwargs)
-        if not self.thumbnail.path.endswith('/default.jpg'):
+        if not self.thumbnail.path.endswith('/default.png'):
             image = Image.open(self.thumbnail.path)
             image.thumbnail((256, 256))
+            image = image.convert('RGB')
             image.save(self.thumbnail.path, format='JPEG', quality=90)
 
     def toJSON(self, request):
