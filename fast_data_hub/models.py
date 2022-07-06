@@ -119,7 +119,7 @@ class Item(models.Model):
         list = [self]
         while len(list) > 0:
             item = list.pop()
-            if not item.is_pipeline:
+            if item.type != Item.PIPELINE:
                 result.add(item.copyright)
 
             for item2 in item.needs.all():
@@ -131,7 +131,7 @@ class Item(models.Model):
         list = [self]
         while len(list) > 0:
             item = list.pop()
-            if not item.is_pipeline:
+            if item.type != Item.PIPELINE:
                 result[item.license.name] = item.license.url
 
             for item2 in item.needs.all():
