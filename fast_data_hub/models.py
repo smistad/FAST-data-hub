@@ -99,6 +99,8 @@ class Item(models.Model):
             'thumbnail_url': request.build_absolute_uri(self.thumbnail.url),
             'download_url': request.build_absolute_uri(reverse('download', kwargs={'item_id': self.id})),
             'type': self.type,
+            'min_fast_version': self.min_fast_version,
+            'max_fast_version': self.max_fast_version,
             'needs': needs,
         }
 
