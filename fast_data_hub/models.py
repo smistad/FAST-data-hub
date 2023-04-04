@@ -46,7 +46,7 @@ class Item(models.Model):
     license = models.ForeignKey(License, on_delete=models.CASCADE)
     license_custom = models.TextField(blank=True)
     copyright = models.CharField(max_length=255)
-    author = models.CharField(max_length=255)
+    author = models.TextField()
     tag = models.ManyToManyField(Tag)
     thumbnail = models.ImageField(upload_to=thumbnail_path, default='thumbnails/default.png', storage=OverwriteStorage())
 
