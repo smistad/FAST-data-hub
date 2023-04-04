@@ -92,6 +92,7 @@ class Item(models.Model):
             'name': self.name,
             'description': self.description,
             'license_name': self.license.name,
+            'license_custom': self.license_custom,
             'license_url': self.license.url,
             'copyright': self.copyright,
             'author': self.author,
